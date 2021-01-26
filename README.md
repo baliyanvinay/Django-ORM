@@ -6,7 +6,11 @@
 - Additional features out of box like
 
 ## What is a Q object in Django ORM?
-A Q() object, like an F object, encapsulates a SQL expression in a Python object that can be used in database-related operations.
+A Q() object is an object used to encapsulate a collection of keyword arguements. 
+```python
+from django.db.models import Q
+Q(question__startswith='Who') | Q(question__startswith='What')
+```
 
 ## How to make an OR query using Q object?
 General way to execute an OR query(where first_name starts with 'Vinay' or 'Vijay')
@@ -15,5 +19,7 @@ General way to execute an OR query(where first_name starts with 'Vinay' or 'Vija
 ```
 Executing with the Q objects.
 ```python
-
+>>> Student.objects.filter(
+    Q(first_name__startswith='Vijay') | Q(first_name__startswith='Vinay')
+    )
 ```
