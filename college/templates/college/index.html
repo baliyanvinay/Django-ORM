@@ -3,9 +3,17 @@
         <title>Django ORM</title>
     </head>
     <body>
+        <h3>And/OR Using a Q Object</h3>
         <ol>
             {% for student in students %}
-            <li>{{ student }}</li>
+                <li>{{ student }}</li>
+            {% endfor %}
+        </ol>
+
+        <h3>Union of Students and Teachers</h3>
+        <ol>
+            {% for union_row in union_queryset %}
+                <li>{{ union_row }}</li>
             {% endfor %}
         </ol>
     </body>

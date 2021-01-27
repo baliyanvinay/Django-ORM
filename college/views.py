@@ -15,9 +15,9 @@ def index(request):
     )
 
     # A union query on students and teachers queryset
-    students = Student.objects.values_list('first_name')
-    teachers = Teacher.objects.values_list('first_name')
-    union_queryset = students.union(teachers)
+    students_query = Student.objects.values_list('first_name','last_name')
+    teachers_query = Teacher.objects.values_list('first_name','last_name')
+    union_queryset = students_query.union(teachers_query)
 
     return render(request, 'college/index.html', context={
         'students': students,

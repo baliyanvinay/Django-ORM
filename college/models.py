@@ -15,4 +15,4 @@ class Teacher(models.Model):
     last_name=models.CharField(max_length=30)
 
     def __str__(self):
-        return self.first_name
+        eturn f"| {self.first_name} {self.last_name} |
