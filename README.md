@@ -46,6 +46,8 @@ The UNION operator selects only distinct values by default. To allow duplicate v
 ```
 
 ## Methods that return new QuerySets
+|  |  |  |
+| :-----:|:-------:| --------:| 
 | filter | exclude | annotate |
 | order_by | reverse | distinct |
 | values | values_list | dates |
@@ -53,4 +55,4 @@ The UNION operator selects only distinct values by default. To allow duplicate v
 | union | intersection | difference |
 | select_related | prefetch related | extra |
 | defer | only | using |
-| select_for_update | raw | - |
+| select_for_update | raw | |
