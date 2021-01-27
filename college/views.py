@@ -9,7 +9,10 @@ def index(request):
         Q(age__lte=25) | Q(first_name__startswith='Vinay') | ~Q(classroom__startswith='CS')
     )
 
-    teachers = Teacher.objects.all()
+    # And query using Q object
+    students = Student.objects.filter(
+        Q(last_name__contains='Rathi') & Q(age__gt=23)
+    )
 
     return render(request, 'college/index.html', context={
         'students': students

@@ -25,5 +25,7 @@ Executing with the Q objects.
 ```
 ## Make an 'and' query using Q object.
 ```python
->>> 
+>>> Student.objects.filter(
+    Q(last_name__contains='Rathi') & Q(age__gt=23)
+    )
 ```
