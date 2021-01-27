@@ -14,6 +14,12 @@ def index(request):
         Q(last_name__contains='Rathi') & Q(age__gt=23)
     )
 
+    # A union query on students and teachers queryset
+    students = Student.objects.values_list('first_name')
+    teachers = Teacher.objects.values_list('first_name')
+    union_queryset = students.union(teachers)
+
     return render(request, 'college/index.html', context={
-        'students': students
+        'students': students,
+        'union_queryset': union_queryset,
     })
