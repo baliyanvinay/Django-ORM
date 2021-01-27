@@ -29,3 +29,10 @@ Executing with the Q objects.
     Q(last_name__contains='Rathi') & Q(age__gt=23)
     )
 ```
+
+## Make an 'Union' query
+```python
+>>> student_query = Student.objects.values_list('first_name')
+>>> teacher_query = Teacher.objects.values_list('first_name')
+>>> union_query = student_query.union(teacher_query)
+```
