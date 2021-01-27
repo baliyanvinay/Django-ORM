@@ -30,7 +30,9 @@ Executing with the Q objects.
     )
 ```
 
-## Make an 'Union' query
+## Make a 'Union' query on two querysets
+A union query needs to have same columns in the querysets on which the union is applied. <br>
+The UNION operator selects only distinct values by default. To allow duplicate values, use the all=True argument.
 ```python
 >>> student_query = Student.objects.values_list('first_name')
 >>> teacher_query = Teacher.objects.values_list('first_name')
