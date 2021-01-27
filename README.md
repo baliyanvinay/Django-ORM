@@ -44,3 +44,13 @@ The UNION operator selects only distinct values by default. To allow duplicate v
 >>> Student.object.exclude(age=20)
 >>> Student.object.filter(~Q(age=20))
 ```
+
+## Methods that return new QuerySets
+| filter | exclude | annotate |
+| order_by | reverse | distinct |
+| values | values_list | dates |
+| datetimes | none | all |
+| union | intersection | difference |
+| select_related | prefetch related | extra |
+| defer | only | using |
+| select_for_update | raw | - |
