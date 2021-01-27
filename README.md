@@ -23,3 +23,7 @@ Executing with the Q objects.
     Q(first_name__startswith='Vijay') | Q(first_name__startswith='Vinay')
     )
 ```
+## Make an 'and' query using Q object.
+```python
+>>> 
+```
