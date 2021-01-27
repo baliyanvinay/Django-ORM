@@ -38,3 +38,9 @@ The UNION operator selects only distinct values by default. To allow duplicate v
 >>> teacher_query = Teacher.objects.values_list('first_name')
 >>> union_query = student_query.union(teacher_query)
 ```
+
+## Exclude query in Django
+```python
+>>> Student.object.exclude(age=20)
+>>> Student.object.filter(~Q(age=20))
+```
