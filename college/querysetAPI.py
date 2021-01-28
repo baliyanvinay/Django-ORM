@@ -11,6 +11,9 @@ def method_returning_new_queryset(request):
     # all()--> returns a copy of current queryset
     queryset_all = students_queryset.all()
 
+    # distinct()--> returns a new QuerySet that uses SELECT DISTINCT in its SQL query.
+    queryset_distinct = students_queryset.distinct()
+
     # filter()--> returns a new QuerySet containing objects that match the given lookup parameters
     queryset_filter = students_queryset.filter(age=26)
 
@@ -42,6 +45,7 @@ def method_returning_new_queryset(request):
 
     return {
         'queryset_all': queryset_all, 
+        'queryset_distinct': queryset_distinct,
         'queryset_filter': queryset_filter,
         'queryset_exclude': queryset_exclude, 
         'queryset_difference': queryset_difference, 
