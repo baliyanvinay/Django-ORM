@@ -59,11 +59,8 @@ The UNION operator selects only distinct values by default. To allow duplicate v
 | last | latest  | update_or_create | bulk_update | first | earliest  | exists  | delete | iterator |
 
 ## Field lookups in queryset
-|        |         |         |         |
-| :-----:|:-------:|:-------:|:-------:|
-| exact | iexact | contains | icontains | in |
-| gt | gte | lt | lte | range |
-| startswith | istartswith | endswith | iendswith | date |
-| year | iso_year | month | day | week |
-| week_day | quarter | time | hour | minute |
-| isnull | regex | iregex |
+|        |         |         |         |       |         |         |         |
+| :-----:|:-------:|:-------:|:-------:|:-----:|:-------:|:-------:|:-------:|
+| exact | iexact | contains | icontains | in | gt | gte | lt | lte | range |
+| startswith | istartswith | endswith | iendswith | date | year | iso_year | month | day | week |
+| week_day | quarter | time | hour | minute | isnull | regex | iregex |
