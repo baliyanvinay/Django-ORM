@@ -63,3 +63,13 @@ The UNION operator selects only distinct values by default. To allow duplicate v
 | latest | earliest | first | last |
 | aggregate | exists | update | delete |
 | as_manager | explain | iterator |
+
+## Field lookups in queryset
+|        |         |         |         |
+| :-----:|:-------:|:-------:|:-------:|
+| exact | iexact | contains | icontains | in |
+| gt | gte | lt | lte | range |
+| startswith | istartswith | endswith | iendswith | date |
+| year | iso_year | month | day | week |
+| week_day | quarter | time | hour | minute |
+| isnull | regex | iregex |
