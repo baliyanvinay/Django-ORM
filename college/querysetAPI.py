@@ -1,6 +1,6 @@
 # QuerySet API Related methods and field lookups
 from college.models import Student, Teacher
-from django.db.models import Q
+from django.db.models import Q, Count
 
 
 def method_returning_new_queryset(request):
@@ -43,6 +43,23 @@ def method_returning_new_queryset(request):
     # dates()--> returns a list of all possible matches of date pattern provided
     querset_dates = teachers_queryset.dates('date_of_joining', 'year') # will return dates in year format 
 
+    # annotate()--> returns a query with the parameter applied on each object
+    queryset_annotate = students_queryset.annotate(count_first_name=Count('first_name'))
+    queryset_annotate.count_first_name() # will return the total count
+    queryset_annotate[0].count_first_name # will return the count per object
+
+    # order_by()--> returns a queryset with the ordered objects as parameterized 
+    queryset_order_by = students_queryset.order_by('last_name','-age') # order asc by last_name, desc by age
+
+    # reverse()--> returns the reversed order of objects|objects must be ordered first either in Meta class or by order_by
+    queryset_reverse = queryset_order_by.reverse() # since this is already ordered
+
+    # none()--> returns empty queryset| is an instance of EmptyQuerySet(django.db.models.query)
+    queryset_none = students_queryset.none()
+
+    # raw()--> takes a raw SQL query & returns a django.db.models.query.RawQuerySet instance.
+    queryset_raw = students_queryset.raw('SELECT * FROM college_student') # app_modelname-in lowercase
+
     return {
         'queryset_all': queryset_all, 
         'queryset_distinct': queryset_distinct,
@@ -55,6 +72,11 @@ def method_returning_new_queryset(request):
         'queryset_values_list': queryset_values_list,
         'queryset_using': queryset_using,
         'querset_dates': querset_dates,
+        'queryset_annotate': queryset_annotate,
+        'queryset_order_by': queryset_order_by,
+        'queryset_reverse': queryset_reverse,
+        'queryset_none': queryset_none,
+        'queryset_raw': queryset_raw,
     } # returning context as context dictionary object
 
 def method_not_returning_new_queryset(request):

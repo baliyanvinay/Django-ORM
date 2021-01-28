@@ -60,8 +60,11 @@ The UNION operator selects only distinct values by default. To allow duplicate v
 | values_list  | values  | dates | datetimes | union    | only  | raw | select_related    |
 | intersection | filter  | extra | annotate  | reverse  | defer |     | select_for_update |
 
-Note: extra is going to be deprecated at some point in the future. <br>
-datetimes is similar to dates but with extra times filtering capacity
+Note: extra() is going to be deprecated at some point in the future. <br>
+datetimes() is similar to dates but with extra times filtering capacity <br>
+defer() defers the load of field(s) passed as args until you don't need them to optimize. <br>
+only() does opposite to defer & loads field(s) passed as args immediately, defers all other fields
+
 
 ## Methods that do not return new QuerySets
 |        |         |         |         |         |         |         |         |         |
