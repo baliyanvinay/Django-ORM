@@ -11,8 +11,9 @@ class Student(models.Model):
         return f"| {self.first_name} {self.last_name} | {self.age} | {self.classroom} |"
 
 class Teacher(models.Model):
-    first_name=models.CharField(max_length=30)
-    last_name=models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    date_of_joining = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f"| {self.first_name} {self.last_name} |"
