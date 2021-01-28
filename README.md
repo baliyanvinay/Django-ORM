@@ -46,13 +46,20 @@ The UNION operator selects only distinct values by default. To allow duplicate v
 ```
 
 ## Methods that return new QuerySets
-|  |  |  |
-| :-----:|:-------:| --------:| 
-| filter | exclude | annotate |
-| order_by | reverse | distinct |
-| values | values_list | dates |
-| datetimes | none | all |
-| union | intersection | difference |
-| select_related | prefetch related | extra |
-| defer | only | using |
-| select_for_update | raw | |
+|        |         |         |         |
+| :-----:|:-------:|:-------:|:-------:|
+| filter | exclude | annotate | distinct |
+| order_by | reverse | dates | values_list | 
+| values | | datetimes | none | all |
+| union | intersection | difference | extra |
+| select_related | prefetch related | only | using |
+| defer | select_for_update | raw |
+
+## Methods that do not return new QuerySets
+|        |         |         |         |
+| :-----:|:-------:|:-------:|:-------:|
+| get | create | get_or_create | update_or_create |
+| bulk_create | bulk_update | count | in_bulk |
+| latest | earliest | first | last |
+| aggregate | exists | update | delete |
+| as_manager | explain | iterator |
