@@ -5,7 +5,41 @@ from django.db.models import Q
 
 def method_returning_new_queryset(request):
     ''' Methods when applied to a queryset will return a new queryset '''
-    pass
+    students_queryset = Student.objects # objects is the default model manager and returns a queryset
+    teachers_queryset = Teacher.objects
+
+    # all()--> returns a copy of current queryset
+    queryset_all = students_queryset.all()
+
+    # exclude()--> returns a new queryset with objects excluding the kwargs in arguements
+    queryset_exclude = students_queryset.exclude(age=26) # will not return where age is 26
+
+    # difference()--> returns a new queryset with objects that does not exists between the given querysets
+    queryset_1 = students_queryset.values_list('first_name','last_name')
+    queryset_2 = teachers_queryset.values_list('first_name','last_name')
+    queryset_difference = queryset_1.difference(queryset_2)
+
+    # intersection()--> returns a new queryset with objects common in given querysets
+    queryset_intersection = queryset_1.intersection(queryset_2)
+
+    # union()--> makes a union among all the querysets| returns a new querset
+    queryset_union = queryset_1.union(queryset_2)
+
+    # values()--> returns a QuerySet that returns dictionaries, rather than model instances
+    queryset_values = students_queryset.values()
+
+    # values_list()--> returns a tuple of the columns/attributes passed as arguements
+    queryset_values_list = students_queryset.values_list('first_name','last_name', named=True) # will return namedTuple
+
+    return {
+        'queryset_all': queryset_all, 
+        'queryset_exclude': queryset_exclude, 
+        'queryset_difference': queryset_difference, 
+        'queryset_intersection': queryset_intersection, 
+        'queryset_union': queryset_union, 
+        'queryset_values': queryset_values, 
+        'queryset_values_list': queryset_values_list
+    } # returning context as context dictionary object
 
 def method_not_returning_new_queryset(request):
     pass
