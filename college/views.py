@@ -7,9 +7,8 @@ from college.querysetAPI import (
 )
 
 def index(request):
-    # Method to be called here for homepage
     method_returning_new_queryset(request)
-    method_not_returning_new_queryset(request)
-    queryset_field_lookup(request)
+    # method_not_returning_new_queryset(request)
+    # queryset_field_lookup(request)
 
     return render(request, 'college/index.html', context={})

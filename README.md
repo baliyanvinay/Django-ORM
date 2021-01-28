@@ -5,6 +5,13 @@
 - Can easily switch between any relational database i.e., MySQL to PostgreSQL
 - Additional features out of box like
 
+## QuerySet in Django
+A QuerySet represents a collection of objects from your database. In SQL terms, a QuerySet equates to a SELECT statement. You get a QuerySet by using your model’s Manager. Each model has at least one Manager, and it’s called objects by default. 
+```python
+>>> Students.objects
+<django.db.models.manager.Manager object at 0x7f4bda75b7c0>
+```
+
 ## What is a Q object in Django ORM?
 A Q() object is an object used to encapsulate a collection of keyword arguements. 
 ```python
@@ -42,8 +49,8 @@ The UNION operator selects only distinct values by default. To allow duplicate v
 
 ## Exclude query in Django
 ```python
->>> Student.object.exclude(age=20)
->>> Student.object.filter(~Q(age=20))
+>>> Student.objects.exclude(age=20)
+>>> Student.objects.filter(~Q(age=20))
 ```
 
 ## Methods that return new QuerySets

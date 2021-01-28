@@ -4,6 +4,7 @@ from django.db.models import Q
 
 
 def method_returning_new_queryset(request):
+    ''' Methods when applied to a queryset will return a new queryset '''
     pass
 
 def method_not_returning_new_queryset(request):
