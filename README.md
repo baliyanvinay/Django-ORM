@@ -15,7 +15,8 @@ Q(question__startswith='Who') | Q(question__startswith='What')
 ## How to make an OR query using Q object?
 General way to execute an OR query(where first_name starts with 'Vinay' or 'Vijay')
 ```python
->>> Student.objects.filter(first_name__startswith='Vijay')|Student.objects.filter(first_name__startswith='Vinay')
+>>> Student.objects.filter(first_name__startswith='Vijay')|
+... Student.objects.filter(first_name__startswith='Vinay')
 ```
 Executing with the Q objects.
 ```python
