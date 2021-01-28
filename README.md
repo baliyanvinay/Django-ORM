@@ -53,11 +53,10 @@ The UNION operator selects only distinct values by default. To allow duplicate v
 | intersection | filter  | extra | annotate  | reverse  | defer |     | select_for_update |
 
 ## Methods that do not return new QuerySets
-|        |         |         |         |         |         |         |         |
-| :-----:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
-| get  | create  | get_or_create    | bulk_create | count | aggregate | in_bulk | update | 
-| last | latest  | update_or_create | bulk_update | first | earliest  | exists  | delete |
-|      | explain | as_manager       | iterator |
+|        |         |         |         |         |         |         |         |         |         |
+| :-----:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| get  | create  | get_or_create    | bulk_create | count | aggregate | in_bulk | update | explain  | as_manager | 
+| last | latest  | update_or_create | bulk_update | first | earliest  | exists  | delete | iterator |
 
 ## Field lookups in queryset
 |        |         |         |         |
