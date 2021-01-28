@@ -45,7 +45,7 @@ def method_returning_new_queryset(request):
 
     # annotate()--> returns a query with the parameter applied on each object
     queryset_annotate = students_queryset.annotate(count_first_name=Count('first_name'))
-    queryset_annotate.count_first_name() # will return the total count
+    # queryset_annotate.count_first_name() # will return the total count
     queryset_annotate[0].count_first_name # will return the count per object
 
     # order_by()--> returns a queryset with the ordered objects as parameterized 
