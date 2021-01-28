@@ -1,25 +1,15 @@
 from django.shortcuts import render
-from college.models import Student, Teacher
-from django.db.models import Q
+
+from college.querysetAPI import (
+    method_returning_new_queryset,
+    method_not_returning_new_queryset,
+    queryset_field_lookup
+)
 
 def index(request):
-    students = Student.objects.all()
-    # OR query using Q objects
-    students = Student.objects.filter(
-        Q(age__lte=25) | Q(first_name__startswith='Vinay') | ~Q(classroom__startswith='CS')
-    )
+    # Method to be called here for homepage
+    method_returning_new_queryset(request)
+    method_not_returning_new_queryset(request)
+    queryset_field_lookup(request)
 
-    # And query using Q object
-    students = Student.objects.filter(
-        Q(last_name__contains='Rathi') & Q(age__gt=23)
-    )
-
-    # A union query on students and teachers queryset
-    students_query = Student.objects.values_list('first_name','last_name')
-    teachers_query = Teacher.objects.values_list('first_name','last_name')
-    union_queryset = students_query.union(teachers_query)
-
-    return render(request, 'college/index.html', context={
-        'students': students,
-        'union_queryset': union_queryset,
-    })
+    return render(request, 'college/index.html', context={})
