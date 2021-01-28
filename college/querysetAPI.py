@@ -11,6 +11,9 @@ def method_returning_new_queryset(request):
     # all()--> returns a copy of current queryset
     queryset_all = students_queryset.all()
 
+    # filter()--> returns a new QuerySet containing objects that match the given lookup parameters
+    queryset_filter = students_queryset.filter(age=26)
+
     # exclude()--> returns a new queryset with objects excluding the kwargs in arguements
     queryset_exclude = students_queryset.exclude(age=26) # will not return where age is 26
 
@@ -31,14 +34,23 @@ def method_returning_new_queryset(request):
     # values_list()--> returns a tuple of the columns/attributes passed as arguements
     queryset_values_list = students_queryset.values_list('first_name','last_name', named=True) # will return namedTuple
 
+    # using()--> using which database(as defined in setting file)
+    queryset_using = students_queryset.using('default') # default is name of sqlite3 db in settings.py
+
+    # dates()--> returns a list of all possible matches of date pattern provided
+    querset_dates = teachers_queryset.dates('date_of_joining', 'year') # will return dates in year format 
+
     return {
         'queryset_all': queryset_all, 
+        'queryset_filter': queryset_filter,
         'queryset_exclude': queryset_exclude, 
         'queryset_difference': queryset_difference, 
         'queryset_intersection': queryset_intersection, 
         'queryset_union': queryset_union, 
         'queryset_values': queryset_values, 
-        'queryset_values_list': queryset_values_list
+        'queryset_values_list': queryset_values_list,
+        'queryset_using': queryset_using,
+        'querset_dates': querset_dates,
     } # returning context as context dictionary object
 
 def method_not_returning_new_queryset(request):
