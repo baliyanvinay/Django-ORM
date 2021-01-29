@@ -72,6 +72,8 @@ only() does opposite to defer & loads field(s) passed as args immediately, defer
 | get  | create  | get_or_create    | bulk_create | count | aggregate | in_bulk | update | explain  |
 | last | latest  | update_or_create | bulk_update | first | earliest  | exists  | delete | iterator |
 
+Note: bulk_update() is similar to bulk_create but with update capabalities
+
 ## Field lookups in queryset
 |        |         |         |         |       |         |         |         |
 | :-----:|:-------:|:-------:|:-------:|:-----:|:-------:|:-------:|:-------:|
