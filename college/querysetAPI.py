@@ -80,7 +80,29 @@ def method_returning_new_queryset(request):
     } # returning context as context dictionary object
 
 def method_not_returning_new_queryset(request):
-    pass
+    # get() --> returns single object matching parameter| returns error--> DoesNotExis & MultipleObjectsReturned
+    result_get = Student.objects.get(first_name='Komal')
+
+    # create()--> creates an object and saves it in one step.
+    result_create = Student.objects.create(first_name='Shivani', last_name='Sharma', age=26, classroom='IT')
+
+    # get_or_create()--> returns object & boolean indicating if new object is created or retrieved
+    result_get_or_create = Student.objects.get_or_create(first_name='Komal',last_name='Rathi', age=24, classroom='CS')
+
+    # update_or_create()--> returns object & boolean indicating if object is created or updated
+    result_update_or_create = Student.objects.update_or_create(first_name='Komal',last_name='Rathi', age=24, classroom='CS',
+                                defaults={'last_name': 'Dahiya'} # defaults dict data is updated
+                            )
+    
+    # bulk_create()--> create objects in bulk from the list
+    result_bulk_create = Teacher.objects.bulk_create([
+                                                    Teacher(first_name='David', last_name='Milan'), 
+                                                    Teacher(first_name='Sushil',last_name='Tyagi'),
+                                                    Teacher(first_name='First', last_name='Last'),
+                        ])
+
+    # update()--> returns no of updated records 
+    result_update = Teacher.objects.filter(first_name='First', last_name='Last').update(first_name='Neetu', last_name='Singh')
 
 def queryset_field_lookup(request):
     pass
