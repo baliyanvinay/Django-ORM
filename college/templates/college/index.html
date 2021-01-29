@@ -3,20 +3,13 @@
         <title>Django ORM</title>
     </head>
     <body>
-
-        <h3>And/OR Using a Q Object</h3>
-        <ol>
-            {% for student in students %}
-                <li>{{ student }}</li>
+        <h2> Methods which returns a new QuerySet </h2>
+        {% for key, context in all_context.items %}
+            <h3> {{ key }} </h3>
+            {% for data_object in context %}
+                {{ forloop.counter }} {{ data_object }} <br>
             {% endfor %}
-        </ol>
-
-        <h3>Union of Students and Teachers</h3>
-        <ol>
-            {% for union_row in union_queryset %}
-                <li>{{ union_row }}</li>
-            {% endfor %}
-        </ol>
+        {% endfor %}
         
     </body>
 </html>
