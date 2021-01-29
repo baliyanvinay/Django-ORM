@@ -5,7 +5,7 @@
     <body>
         <h2> Methods which returns a new QuerySet </h2>
         {% for key, context in all_context.items %}
-            <h3> {{ key }} </h3>
+            <h3> {{ forloop.counter }} {{ key }} </h3>
             {% for data_object in context %}
                 {{ forloop.counter }} {{ data_object }} <br>
             {% endfor %}
