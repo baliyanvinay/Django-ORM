@@ -81,7 +81,7 @@ def method_returning_new_queryset(request):
 
 def method_not_returning_new_queryset(request):
     # get() --> returns single object matching parameter| returns error--> DoesNotExis & MultipleObjectsReturned
-    result_get = Student.objects.get(first_name='Komal')
+    result_get = Student.objects.get(id=1)
 
     # create()--> creates an object and saves it in one step.
     result_create = Student.objects.create(first_name='Shivani', last_name='Sharma', age=26, classroom='IT')
