@@ -7,8 +7,11 @@ from college.querysetAPI import (
 )
 
 def index(request):
-    all_context = method_returning_new_queryset(request)
-    # method_not_returning_new_queryset(request)
+    context_01 = method_returning_new_queryset(request)
+    context_02 = method_not_returning_new_queryset(request)
     # queryset_field_lookup(request)
 
-    return render(request, 'college/index.html', context={'all_context': all_context})
+    return render(request, 'college/index.html', context={
+        'context_01': context_01,
+        'context_02': context_02
+        })
