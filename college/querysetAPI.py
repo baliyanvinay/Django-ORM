@@ -104,6 +104,17 @@ def method_not_returning_new_queryset(request):
     # update()--> returns no of updated records 
     result_update = Teacher.objects.filter(first_name='First', last_name='Last').update(first_name='Neetu', last_name='Singh')
 
+    # first()--> returns the first object matched by the queryset, or None if there is no matching object
+    # If no order is defined then ordered by primary_key
+    result_first = Teacher.objects.first()
+
+    # last()--> Opposite of first()
+    result_last = Teacher.objects.last() # will return last object by primary_key
+
+    # exists()--> returns True if queryset has something or not
+    result_exists = Teacher.objects.filter(id=23).exists() # will return False| no id is 23
+
+
 def queryset_field_lookup(request):
     pass
 
