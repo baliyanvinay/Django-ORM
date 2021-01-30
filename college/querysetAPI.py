@@ -130,6 +130,23 @@ def method_not_returning_new_queryset(request):
     result_explain = Teacher.objects.filter(last_name='Singh').explain()
 
 
+    return {
+        'result_get': result_get,
+        'result_create': result_create,
+        'result_get_or_create': result_get_or_create,
+        'result_update_or_create': result_update_or_create,
+        'result_bulk_create': result_bulk_create,
+        'result_update': result_update,
+        'result_first': result_first,
+        'result_last': result_last,
+        'result_exists': result_exists,
+        'result_latest': result_latest,
+        'result_earliest': result_earliest,
+        'result_delete': result_delete,
+        'result_aggregate': result_aggregate,
+        'result_explain': result_explain,
+    }
+
 def queryset_field_lookup(request):
     pass
 
