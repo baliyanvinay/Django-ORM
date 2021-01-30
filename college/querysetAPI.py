@@ -114,6 +114,12 @@ def method_not_returning_new_queryset(request):
     # exists()--> returns True if queryset has something or not
     result_exists = Teacher.objects.filter(id=23).exists() # will return False| no id is 23
 
+    # latest()--> returns the latest object based on a given field
+    result_latest = Teacher.objects.latest('-first_name') # return in alphabetical order
+
+    # earliest()--> opposite of latest
+    result_earliest = Teacher.objects.earliest('id') # the earliest id record
+
 
 def queryset_field_lookup(request):
     pass
