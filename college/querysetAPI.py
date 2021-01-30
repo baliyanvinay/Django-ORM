@@ -120,6 +120,15 @@ def method_not_returning_new_queryset(request):
     # earliest()--> opposite of latest
     result_earliest = Teacher.objects.earliest('id') # the earliest id record
 
+    # delete()--> deletes a QS
+    result_delete = Teacher.objects.filter(pk__gte=4).delete()
+
+    # aggregate()--> returns a dict after aggregating over the QS
+    result_aggregate = Teacher.objects.aggregate(total_records=Count('id'))
+
+    # explain()--> returns the execution plan of QS
+    result_explain = Teacher.objects.filter(last_name='Singh').explain()
+
 
 def queryset_field_lookup(request):
     pass
