@@ -174,6 +174,9 @@ def queryset_field_lookup(request):
     # endswith, iendswith :: SQL LIKE, ILIKE '%string'
     result_endswith = Student.objects.filter(first_name__endswith='nay') # LIKE '%nay'
 
+    # range :: SQL BETWEEN
+    result_range = Student.objects.filter(age__range=(23,24)) # inclusive
+
 
 ## Put the below code somewhere
 # students = Student.objects.all()

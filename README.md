@@ -81,4 +81,5 @@ Note: bulk_update() is similar to bulk_create but with update capabalities
 | startswith | istartswith | endswith | iendswith | date | year | iso_year | month | day | week |
 | week_day | quarter | time | hour | minute | isnull | regex | iregex |
 
-Note: SQLite doesn’t support case-sensitive LIKE statements; contains acts like icontains for SQLite.
+Note: SQLite doesn’t support case-sensitive LIKE statements; contains acts like icontains for SQLite. <br>
+date :: For datetime fields, casts the value as date.
