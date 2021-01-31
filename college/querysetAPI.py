@@ -148,7 +148,11 @@ def method_not_returning_new_queryset(request):
     }
 
 def queryset_field_lookup(request):
-    pass
+    # exact:: An exact match | Case Sensitive | Retuns QS
+    result_exact = Student.objects.filter(first_name__exact='Vinay')
+
+    # iexact:: Case-insensitive exact match | Returns QS
+    result_iexact = Student.objects.filter(first_name__iexact='komal')
 
 
 
