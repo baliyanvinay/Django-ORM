@@ -80,3 +80,5 @@ Note: bulk_update() is similar to bulk_create but with update capabalities
 | exact | iexact | contains | icontains | in | gt | gte | lt | lte | range |
 | startswith | istartswith | endswith | iendswith | date | year | iso_year | month | day | week |
 | week_day | quarter | time | hour | minute | isnull | regex | iregex |
+
+Note: SQLite doesn’t support case-sensitive LIKE statements; contains acts like icontains for SQLite.
