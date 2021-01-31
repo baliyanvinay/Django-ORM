@@ -17,5 +17,12 @@
             {{ context }} <br>
         {% endfor %}
 
+        <h2> Field LookUps </h2>
+        {% for key, context in context_03.items %}
+            <h3> {{ forloop.counter }} {{ key }} </h3>
+            {{ context }} <br>
+        {% endfor %}
+
+
     </body>
 </html>
