@@ -158,7 +158,7 @@ def queryset_field_lookup(request):
     result_contains = Student.objects.filter(last_name__contains='Rathi')
 
     # contains :: SQL LIKE | Case Sensitive | Returns QS
-    result_icontains = Student.objects.filter(last_name__icontains='rathi')
+    result_icontains = Student.objects.filter(last_name__icontains='rathi') # LIKE '%rathi%'
 
     # in :: SQL IN
     result_in = Student.objects.filter(last_name__in=('Rathi','Baliyan'))
@@ -167,6 +167,12 @@ def queryset_field_lookup(request):
     result_gt = Student.objects.filter(id__gt=4)
 
     # LikeWise for gte, lt, lte
+
+    # startswith, istartswith :: SQL LIKE, ILIKE 'string%'
+    result_startswith = Student.objects.filter(first_name__startswith='Vin') # LIKE 'Vin%'
+
+    # endswith, iendswith :: SQL LIKE, ILIKE '%string'
+    result_endswith = Student.objects.filter(first_name__endswith='nay') # LIKE '%nay'
 
 
 ## Put the below code somewhere
