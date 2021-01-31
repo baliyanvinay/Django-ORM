@@ -182,10 +182,10 @@ def queryset_field_lookup(request):
     # Likewise, time, hour, minute, seconds
 
     # isnull :: SQL IS NULL or IS NOT NULL
-    result_null = Student.objects.filter(first_name__null=False)
+    result_null = Student.objects.filter(first_name__isnull=False)
 
     # regex, iregex :: allows regex operation 
-    result_iregex = Teacher.objects.filter(first_name__regex=r"pa|Dav") # Pawan or David
+    result_iregex = Teacher.objects.filter(first_name__iregex=r"pa|Dav") # Pawan or David
 
     return {
         'result_exact': result_exact,
