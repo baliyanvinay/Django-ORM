@@ -160,6 +160,13 @@ def queryset_field_lookup(request):
     # contains :: SQL LIKE | Case Sensitive | Returns QS
     result_icontains = Student.objects.filter(last_name__icontains='rathi')
 
+    # in :: SQL IN
+    result_in = Student.objects.filter(last_name__in=('Rathi','Baliyan'))
+
+    # gt :: greater than
+    result_gt = Student.objects.filter(id__gt=4)
+
+    # LikeWise for gte, lt, lte
 
 
 ## Put the below code somewhere
