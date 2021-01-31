@@ -148,16 +148,10 @@ def method_not_returning_new_queryset(request):
     }
 
 def queryset_field_lookup(request):
-    # exact :: An exact match | Case Sensitive | Retuns QS
+    # exact , iexact :: SQL = | retuns QS
     result_exact = Student.objects.filter(first_name__exact='Vinay')
 
-    # iexact :: Case-insensitive exact match | Returns QS
-    result_iexact = Student.objects.filter(first_name__iexact='komal')
-
-    # contains :: SQL LIKE | Case Sensitive | Returns QS
-    result_contains = Student.objects.filter(last_name__contains='Rathi')
-
-    # contains :: SQL LIKE | Case Sensitive | Returns QS
+    # contains, contains :: SQL LIKE, ILIKE '%%'
     result_icontains = Student.objects.filter(last_name__icontains='rathi') # LIKE '%rathi%'
 
     # in :: SQL IN
@@ -192,6 +186,20 @@ def queryset_field_lookup(request):
 
     # regex, iregex :: allows regex operation 
     result_iregex = Teacher.objects.filter(first_name__regex=r"pa|Dav") # Pawan or David
+
+    return {
+        'result_exact': result_exact,
+        'result_icontains': result_icontains,
+        'result_in': result_in,
+        'result_gt': result_gt,
+        'result_startswith': result_startswith,
+        'result_endswith': result_endswith,
+        'result_range': result_range,
+        'result_year': result_year,
+        'result_month': result_month,
+        'result_null': result_null,
+        'result_iregex': result_iregex
+    }
 
 
 
