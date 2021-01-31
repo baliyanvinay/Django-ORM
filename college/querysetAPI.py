@@ -177,6 +177,23 @@ def queryset_field_lookup(request):
     # range :: SQL BETWEEN
     result_range = Student.objects.filter(age__range=(23,24)) # inclusive
 
+    # year :: returns year from DateField or DateTimeField
+    result_year = Teacher.objects.filter(date_of_joining__year=2021)
+
+    # month :: returns month as numeric
+    result_month = Teacher.objects.filter(date_of_joining__month=1)
+
+    # Likewise, quarter(1-4), day(1-31), week(1-52) & week_day(1-7)-SUN(01)--MON(02)
+
+    # Likewise, time, hour, minute, seconds
+
+    # isnull :: SQL IS NULL or IS NOT NULL
+    result_null = Student.objects.filter(first_name__null=False)
+
+    # regex, iregex :: allows regex operation 
+    result_iregex = Teacher.objects.filter(first_name__regex=r"pa|Dav") # Pawan or David
+
+
 
 ## Put the below code somewhere
 # students = Student.objects.all()
