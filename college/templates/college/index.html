@@ -20,9 +20,10 @@
         <h2> Field LookUps </h2>
         {% for key, context in context_03.items %}
             <h3> {{ forloop.counter }} {{ key }} </h3>
-            {{ context }} <br>
+            {% for data_object in context %}
+                {{ forloop.counter }} {{ data_object }} <br>
+            {% endfor %}
         {% endfor %}
-
 
     </body>
 </html>
