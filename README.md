@@ -5,6 +5,8 @@
 - Can easily switch between any relational database i.e., MySQL to PostgreSQL
 - Additional features out of box like
 
+## Example of available ORMs
+
 ## QuerySet in Django
 A QuerySet represents a collection of objects from your database. In SQL terms, a QuerySet equates to a SELECT statement. You get a QuerySet by using your model’s Manager. Each model has at least one Manager, and it’s called objects by default. 
 ```python
@@ -36,6 +38,13 @@ Executing with the Q objects.
 >>> Student.objects.filter(
     Q(last_name__contains='Rathi') & Q(age__gt=23)
     )
+```
+
+## What is an F object in Django ORM?
+An F() object represents the value of a model field or annotated column. An F objects helps me performing operation on value without having it pulled into Python memory
+```python
+from django.db.models import F
+Product.objects.update(price=F('price') * 1.2) # prices of all objects shall be updated
 ```
 
 ## Make a 'Union' query on two querysets
