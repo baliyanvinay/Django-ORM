@@ -209,3 +209,9 @@ def complex_queries_q_objects(request):
         'Q_or_query': Q_or_query,
         'Q_and_query': Q_and_query,
     }
+
+def complex_queries_f_objects(request):
+    
+    return {
+        
+    }
