@@ -201,21 +201,11 @@ def queryset_field_lookup(request):
         'result_iregex': result_iregex
     }
 
+def complex_queries_q_objects(request):
+    Q_or_query = Student.objects.filter(Q(age__lte=25) | Q(first_name__startswith='Vinay') | ~Q(classroom__startswith='CS'))
+    Q_and_query = Student.objects.filter(Q(last_name__contains='Rathi') & Q(age__gt=23))
 
-
-## Put the below code somewhere
-# students = Student.objects.all()
-# # OR query using Q objects
-# students = Student.objects.filter(
-#     Q(age__lte=25) | Q(first_name__startswith='Vinay') | ~Q(classroom__startswith='CS')
-# )
-
-# # And query using Q object
-# students = Student.objects.filter(
-#     Q(last_name__contains='Rathi') & Q(age__gt=23)
-# )
-
-# # A union query on students and teachers queryset
-# students_query = Student.objects.values_list('first_name','last_name')
-# teachers_query = Teacher.objects.values_list('first_name','last_name')
-# union_queryset = students_query.union(teachers_query)
+    return {
+        'Q_or_query': Q_or_query,
+        'Q_and_query': Q_and_query,
+    }
