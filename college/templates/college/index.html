@@ -25,5 +25,13 @@
             {% endfor %}
         {% endfor %}
 
+        <h2> Q Objects </h2>
+        {% for key, context in context_04.items %}
+            <h3> {{ forloop.counter }} {{ key }} </h3>
+            {% for data_object in context %}
+                {{ forloop.counter }} {{ data_object }} <br>
+            {% endfor %}
+        {% endfor %}
     </body>
+    
 </html>
