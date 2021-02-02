@@ -10,8 +10,8 @@
 ## QuerySet in Django
 A QuerySet represents a collection of objects from your database. In SQL terms, a QuerySet equates to a SELECT statement. You get a QuerySet by using your model’s Manager. Each model has at least one Manager, and it’s called objects by default. 
 ```python
->>> Students.objects
-<django.db.models.manager.Manager object at 0x7f4bda75b7c0>
+Students.objects
+# <django.db.models.manager.Manager object at 0x7f4bda75b7c0>
 ```
 
 ## What is a Q object in Django ORM?
@@ -24,20 +24,16 @@ Q(question__startswith='Who') | Q(question__startswith='What')
 ## How to make an OR query using Q object?
 General way to execute an OR query(where first_name starts with 'Vinay' or 'Vijay')
 ```python
->>> Student.objects.filter(first_name__startswith='Vijay')|
-... Student.objects.filter(first_name__startswith='Vinay')
+Student.objects.filter(first_name__startswith='Vijay')| \
+Student.objects.filter(first_name__startswith='Vinay')
 ```
 Executing with the Q objects.
 ```python
->>> Student.objects.filter(
-    Q(first_name__startswith='Vijay') | Q(first_name__startswith='Vinay')
-    )
+Student.objects.filter(Q(first_name__startswith='Vijay') | Q(first_name__startswith='Vinay'))
 ```
 ## Make an 'and' query using Q object.
 ```python
->>> Student.objects.filter(
-    Q(last_name__contains='Rathi') & Q(age__gt=23)
-    )
+Student.objects.filter(Q(last_name__contains='Rathi') & Q(age__gt=23))
 ```
 
 ## What is an F object in Django ORM?
@@ -51,15 +47,15 @@ Product.objects.update(price=F('price') * 1.2) # prices of all objects shall be 
 A union query needs to have same columns in the querysets on which the union is applied. <br>
 The UNION operator selects only distinct values by default. To allow duplicate values, use the all=True argument.
 ```python
->>> student_query = Student.objects.values_list('first_name')
->>> teacher_query = Teacher.objects.values_list('first_name')
->>> union_query = student_query.union(teacher_query)
+student_query = Student.objects.values_list('first_name')
+teacher_query = Teacher.objects.values_list('first_name')
+union_query = student_query.union(teacher_query)
 ```
 
 ## Exclude query in Django
 ```python
->>> Student.objects.exclude(age=20)
->>> Student.objects.filter(~Q(age=20))
+Student.objects.exclude(age=20)
+Student.objects.filter(~Q(age=20))
 ```
 
 ## Methods that return new QuerySets
