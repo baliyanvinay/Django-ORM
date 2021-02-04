@@ -41,16 +41,11 @@ An F() object represents the value of a model field or annotated column. An F ob
 ```python
 from college.models import Student
 from django.db.models import F
-student = Student.objects.get(pk=22)
-# <Student: | Komal Dahiya | 24 | CS |>
-student.age = F('age')+1
-# <Student: | Komal Dahiya | F(age) + Value(1) | CS |>
-student.save()
-# <Student: | Komal Dahiya | F(age) + Value(1) | CS |>
-student_new = Student.objects.get(pk=22)
-# <Student: | Komal Dahiya | 25 | CS |>
-student.age
-# <CombinedExpression: F(age) + Value(1)>
+student = Student.objects.get(pk=22) # <Student: | Komal Dahiya | 24 | CS |>
+student.age = F('age')+1 # <Student: | Komal Dahiya | F(age) + Value(1) | CS |>
+student.save() # <Student: | Komal Dahiya | F(age) + Value(1) | CS |>
+student_new = Student.objects.get(pk=22) # <Student: | Komal Dahiya | 25 | CS |>
+student.age # <CombinedExpression: F(age) + Value(1)>
 ```
 
 ## Make a 'Union' query on two querysets
