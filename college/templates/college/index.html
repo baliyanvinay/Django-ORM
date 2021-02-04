@@ -36,9 +36,7 @@
         <h2> F Objects </h2>
         {% for key, context in context_05.items %}
             <h3> {{ forloop.counter }} {{ key }} </h3>
-            {% for data_object in context %}
-                {{ forloop.counter }} {{ data_object }} <br>
-            {% endfor %}
+             {{ context }} <br>
         {% endfor %}
 
     </body>
