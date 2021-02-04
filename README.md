@@ -38,9 +38,23 @@ Student.objects.filter(Q(last_name__contains='Rathi') & Q(age__gt=23))
 
 ## What is an F object in Django ORM?
 An F() object represents the value of a model field or annotated column. An F objects helps me performing operation on value without having it pulled into Python memory
-```python
-from django.db.models import F
-Product.objects.update(price=F('price') * 1.2) # prices of all objects shall be updated
+```
+>>> from college.models import Student
+>>> from django.db.models import F
+>>> student = Student.objects.get(pk=22)
+>>> student
+<Student: | Komal Dahiya | 24 | CS |>
+>>> student.age = F('age')+1
+>>> student
+<Student: | Komal Dahiya | F(age) + Value(1) | CS |>
+>>> student.save()
+>>> student
+<Student: | Komal Dahiya | F(age) + Value(1) | CS |>
+>>> student_new = Student.objects.get(pk=22)
+>>> student_new
+<Student: | Komal Dahiya | 25 | CS |>
+>>> student.age
+<CombinedExpression: F(age) + Value(1)>
 ```
 
 ## Make a 'Union' query on two querysets
