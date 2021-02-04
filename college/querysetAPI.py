@@ -211,9 +211,12 @@ def complex_queries_q_objects(request):
     }
 
 def complex_queries_f_objects(request):
-    student = Student.objects.get(id=22)
-    student.age = F('age')+1 # increasing the age by 1 without getting the object into python memory
-    student.save()
+    result_f_object_old = Student.objects.get(id=22)
+    result_f_object_old.age = F('age')+1 # increasing the age by 1 without getting the object into python memory
+    result_f_object_old.save() # object will not display the changes yet
+    result_f_object_new = Student.objects.get(pk=22) # now it will display those changes
+
     return {
-        
+        'result_f_object_old': result_f_object_old,
+        'result_f_object_new': result_f_object_new,    
     }
