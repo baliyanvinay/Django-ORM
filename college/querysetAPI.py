@@ -1,6 +1,6 @@
 # QuerySet API Related methods and field lookups
 from college.models import Student, Teacher
-from django.db.models import Q, Count
+from django.db.models import Q, Count, F
 
 
 def method_returning_new_queryset(request):
@@ -211,7 +211,9 @@ def complex_queries_q_objects(request):
     }
 
 def complex_queries_f_objects(request):
-    
+    student = Student.objects.get(id=22)
+    student.age = F('age')+1 # increasing the age by 1 without getting the object into python memory
+    student.save()
     return {
         
     }
